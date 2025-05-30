@@ -5,6 +5,7 @@ public class State
     private String name;
     private ArrayList<Predator> predators;
 
+    // Constructors
     public State()
     {
         name = null;
@@ -17,14 +18,20 @@ public class State
         predators = _predators;
     }
 
+    // Methods in alphabetical order
+    public ArrayList<Predator> GetPredatorList()
+    {
+        return predators;
+    }
+
     public String GetStateName()
     {
         return name;
     }
 
-    public ArrayList<Predator> GetPredatorList()
+    public void SetPredatorList(ArrayList<Predator> _predators)
     {
-        return predators;
+        predators = _predators;
     }
 
     public void SetStateName(String _name)
@@ -32,8 +39,12 @@ public class State
         name = _name;
     }
 
-    public void SetPredatorList(ArrayList<Predator> _predators)
+    @Override
+    public String toString()
     {
-        predators = _predators;
+        return "State{" +
+               "name='" + name + '\'' +
+               ", predators=" + predators +
+               '}';
     }
 }

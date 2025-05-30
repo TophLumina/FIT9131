@@ -11,6 +11,7 @@ class Sheep extends Animal
         random = new Random();
     }
 
+    // Constructors
     public Sheep()
     {
         super();
@@ -25,6 +26,17 @@ class Sheep extends Animal
         killBy = null;
     }
 
+    // Methods in alphabetical order
+    public boolean getIsLamb()
+    {
+        return isLamb;
+    }
+
+    public Predator getKillBy()
+    {
+        return killBy;
+    }
+
     boolean PredatorAction(Predator predator, int numAlpacaGuarded)
     {
         float probability = (isLamb ? 2 : 1) * predator.getDangerFactor();
@@ -34,19 +46,29 @@ class Sheep extends Animal
         return !isAlive;
     }
 
-    boolean IsLamb()
-    {
-        return isLamb;
-    }
-
-    Predator KillBy()
-    {
-        return killBy;
-    }
-
-    void Reset()
+    public void Reset()
     {
         isAlive = true;
         killBy = null;
+    }
+
+    public void setIsLamb(boolean isLamb)
+    {
+        this.isLamb = isLamb;
+    }
+
+    public void setKillBy(Predator killBy)
+    {
+        this.killBy = killBy;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Sheep{" +
+               "isLamb=" + isLamb +
+               ", killBy=" + (killBy != null ? killBy.getName() : "null") +
+               ", isAlive=" + isAlive +
+               '}';
     }
 }

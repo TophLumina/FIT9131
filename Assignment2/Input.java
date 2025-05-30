@@ -9,6 +9,7 @@ public class Input
         sc = new Scanner(System.in);
     }
 
+    // Methods in alphabetical order
     public static char acceptCharInput(String msg, int idx)
     {
         System.out.println(msg);
@@ -31,5 +32,15 @@ public class Input
     {
         System.out.println(msg);
         return sc.nextLine();
+    }
+
+    public static Scanner getScanner()
+    {
+        return sc;
+    }
+
+    public static void setScanner(Scanner scanner)
+    {
+        sc = scanner;
     }
 }

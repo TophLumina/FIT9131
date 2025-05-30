@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class SimulationManager
 {
-
+    // Nested class
     public static class SimulationSummary
     {
         public double averageTotalCost;
@@ -14,12 +14,14 @@ public class SimulationManager
         public double[] averageKilledByPredator;
         public String[] predatorNames;
 
+        // Constructor
         public SimulationSummary(int numPredators)
         {
             averageKilledByPredator = new double[numPredators];
             predatorNames = new String[numPredators];
         }
 
+        // Methods in alphabetical order
         @Override
         public String toString()
         {
@@ -39,6 +41,7 @@ public class SimulationManager
         }
     }
 
+    // Methods in alphabetical order
     public static SimulationSummary runSimulation(Farm farm, int numAlpacas, int numRuns)
     {
         ArrayList<SimulationResult> results = new ArrayList<SimulationResult>();
@@ -64,27 +67,25 @@ public class SimulationManager
         int[] totalKilledByPredator = new int[summary.averageKilledByPredator.length];
 
         summary.lowestTotalCost = Integer.MAX_VALUE;
-        summary.highestTotalCost = Integer.MIN_VALUE;
-
-        for (SimulationResult result : results)
+        summary.highestTotalCost = Integer.MIN_VALUE;        for (SimulationResult result : results)
         {
-            totalCostSum += result.totalCost;
-            totalSheepLost += result.numSheepLost;
-            totalLambsLost += result.numLambLost;
-            totalAlpacasLost += result.numAlpacaLost;
+            totalCostSum += result.getTotalCost();
+            totalSheepLost += result.getNumSheepLost();
+            totalLambsLost += result.getNumLambLost();
+            totalAlpacasLost += result.getNumAlpacaLost();
 
-            if (result.totalCost < summary.lowestTotalCost)
+            if (result.getTotalCost() < summary.lowestTotalCost)
             {
-                summary.lowestTotalCost = result.totalCost;
+                summary.lowestTotalCost = result.getTotalCost();
             }
-            if (result.totalCost > summary.highestTotalCost)
+            if (result.getTotalCost() > summary.highestTotalCost)
             {
-                summary.highestTotalCost = result.totalCost;
+                summary.highestTotalCost = result.getTotalCost();
             }
 
             for (int i = 0; i < totalKilledByPredator.length; i++)
             {
-                totalKilledByPredator[i] += result.numAnimalLostByPredator.get(i);
+                totalKilledByPredator[i] += result.getNumAnimalLostByPredator().get(i);
             }
         }
 

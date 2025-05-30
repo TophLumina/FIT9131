@@ -3,8 +3,9 @@ import java.util.ArrayList;
 
 public class FileIO
 {
-      public static ArrayList<State> readPredatorsFromFile(String filename)
-      {
+    // Methods in alphabetical order
+    public static ArrayList<State> readPredatorsFromFile(String filename)
+    {
         ArrayList<State> states = new ArrayList<State>();
         
         try (FileReader fr = new FileReader(filename))
@@ -44,10 +45,11 @@ public class FileIO
         
         return states;
     }
-      public static void writeSummaryToFile(String filename, String farmName, int numSheep, int numLambs,
+
+    public static void writeSummaryToFile(String filename, String farmName, int numSheep, int numLambs,
                                         String recommendedProtection, int recommendedCost,
                                         int predictedLoss, String troublesomePredator)
-                                        {
+    {
         try (FileWriter fw = new FileWriter(filename))
         {
             fw.write("Farm Name: " + farmName + "\n");

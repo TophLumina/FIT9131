@@ -1,7 +1,8 @@
 public class Animal
 {
-    public boolean isAlive;
+    protected boolean isAlive;
 
+    // Constructors
     Animal()
     {
         isAlive = true;
@@ -12,8 +13,27 @@ public class Animal
         isAlive = _isAlive;
     }
 
-    Boolean IsAlive()
+    // Methods in alphabetical order
+    public boolean getIsAlive()
     {
         return isAlive;
+    }
+
+    public Boolean IsAlive()
+    {
+        return isAlive;
+    }
+
+    public void setIsAlive(boolean isAlive)
+    {
+        this.isAlive = isAlive;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Animal{" +
+               "isAlive=" + isAlive +
+               '}';
     }
 }

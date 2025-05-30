@@ -1,6 +1,6 @@
-Farm Name: sdadadsa
+Farm Name: jklfjljkljl
 Number of Sheep: 256
 Number of Lambs: 256
-Recommended Protection Level: Pair of Alpacas (Cost: $7425)
-Predicted Animals Lost: 29
+Recommended Protection Level: Pair of Alpacas (Cost: $9213)
+Predicted Animals Lost: 38
 Most Troublesome Predator: Fox
