@@ -8,12 +8,12 @@ public class Farm
     private String name;
     private State state;
 
-    private final int valuePerSheep = 150;
-    private final int valuePerLamb = 250;
-    private final int valuePerAlpaca = 1000;
+    private int valuePerSheep = 150;
+    private int valuePerLamb = 250;
+    private int valuePerAlpaca = 1000;
 
-    private final int alpacaHiringCost = 500;
-    private final int alpacaMaintenanceCost = (int) (new Random().nextFloat() * 200 + 400);
+    private int alpacaHiringCost = 500;
+    private int alpacaMaintenanceCost = (int) (new Random().nextFloat() * 200 + 400);
 
     // Constructors
     public Farm()
@@ -51,7 +51,7 @@ public class Farm
     {
         return name;
     }
-    
+
     public State GetFarmState()
     {
         return state;
@@ -118,7 +118,7 @@ public class Farm
             s.Reset();
 
         SimulationManager.SimulationResult res = new SimulationManager.SimulationResult(state.GetPredatorList());
-        
+
         // Calculate alpaca losses
         int alpacaLost = 0;
         for (int i = 0; i < num_alpaca; ++i)
@@ -133,7 +133,7 @@ public class Farm
             }
         }
         res.setNumAlpacaLost(alpacaLost);
-        
+
         // Calculate costs
         int totalCost = 0;
         totalCost += num_alpaca > 0 ? alpacaHiringCost : 0;
@@ -143,7 +143,8 @@ public class Farm
         int sheepLost = 0;
         int lambLost = 0;
         ArrayList<Integer> predatorKills = new ArrayList<Integer>();
-        for (int i = 0; i < state.GetPredatorList().size(); i++) {
+        for (int i = 0; i < state.GetPredatorList().size(); i++)
+        {
             predatorKills.add(0);
         }
 
@@ -154,9 +155,11 @@ public class Farm
                 if (s.PredatorAction(state.GetPredatorList().get(i), num_alpaca - alpacaLost))
                 {
                     totalCost += s.getIsLamb() ? valuePerLamb : valuePerSheep;
-                    if (s.getIsLamb()) {
+                    if (s.getIsLamb())
+                    {
                         lambLost += 1;
-                    } else {
+                    } else
+                    {
                         sheepLost += 1;
                     }
                     predatorKills.set(i, predatorKills.get(i) + 1);
@@ -164,25 +167,26 @@ public class Farm
                 }
             }
         }
-        
+
         res.setTotalCost(totalCost);
         res.setNumSheepLost(sheepLost);
         res.setNumLambLost(lambLost);
-        res.setNumAnimalLostByPredator(predatorKills);        return res;
+        res.setNumAnimalLostByPredator(predatorKills);
+        return res;
     }
 
     @Override
     public String toString()
     {
         return "Farm{" +
-               "name='" + name + '\'' +
-               ", state=" + state.GetStateName() +
-               ", numSheep=" + (sheep != null ? sheep.length : 0) +
-               ", valuePerSheep=" + valuePerSheep +
-               ", valuePerLamb=" + valuePerLamb +
-               ", valuePerAlpaca=" + valuePerAlpaca +
-               ", alpacaHiringCost=" + alpacaHiringCost +
-               ", alpacaMaintenanceCost=" + alpacaMaintenanceCost +
-               '}';
+                "name='" + name + '\'' +
+                ", state=" + state.GetStateName() +
+                ", numSheep=" + (sheep != null ? sheep.length : 0) +
+                ", valuePerSheep=" + valuePerSheep +
+                ", valuePerLamb=" + valuePerLamb +
+                ", valuePerAlpaca=" + valuePerAlpaca +
+                ", alpacaHiringCost=" + alpacaHiringCost +
+                ", alpacaMaintenanceCost=" + alpacaMaintenanceCost +
+                '}';
     }
 }

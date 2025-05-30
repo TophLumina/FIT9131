@@ -79,12 +79,12 @@ public class SimulationManager
         public String toString()
         {
             return "SimulationResult{" +
-                   "totalCost=" + totalCost +
-                   ", numSheepLost=" + numSheepLost +
-                   ", numLambLost=" + numLambLost +
-                   ", numAlpacaLost=" + numAlpacaLost +
-                   ", numAnimalLostByPredator=" + numAnimalLostByPredator +
-                   '}';
+                    "totalCost=" + totalCost +
+                    ", numSheepLost=" + numSheepLost +
+                    ", numLambLost=" + numLambLost +
+                    ", numAlpacaLost=" + numAlpacaLost +
+                    ", numAnimalLostByPredator=" + numAnimalLostByPredator +
+                    '}';
         }
     }
 
@@ -153,7 +153,9 @@ public class SimulationManager
         int[] totalKilledByPredator = new int[summary.averageKilledByPredator.length];
 
         summary.lowestTotalCost = Integer.MAX_VALUE;
-        summary.highestTotalCost = Integer.MIN_VALUE;        for (SimulationResult result : results)
+        summary.highestTotalCost = Integer.MIN_VALUE;
+
+        for (SimulationResult result : results)
         {
             totalCostSum += result.getTotalCost();
             totalSheepLost += result.getNumSheepLost();

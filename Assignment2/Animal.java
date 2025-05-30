@@ -33,7 +33,7 @@ public class Animal
     public String toString()
     {
         return "Animal{" +
-               "isAlive=" + isAlive +
-               '}';
+                "isAlive=" + isAlive +
+                '}';
     }
 }
