@@ -1,11 +1,19 @@
-public class Animal {
+public class Animal
+{
     public boolean isAlive;
 
-    Animal() {
+    Animal()
+    {
         isAlive = true;
     }
 
-    Boolean IsAlive() {
+    Animal(boolean _isAlive)
+    {
+        isAlive = _isAlive;
+    }
+
+    Boolean IsAlive()
+    {
         return isAlive;
     }
 }

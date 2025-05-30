@@ -1,20 +1,32 @@
 import java.util.Random;
 
-class Sheep extends Animal {
+class Sheep extends Animal
+{
     private boolean isLamb;
     private Predator killBy;
     private static Random random;
 
-    static {
+    static
+    {
         random = new Random();
     }
 
-    Sheep(boolean _isLamb) {
+    public Sheep()
+    {
+        super();
+        isLamb = false;
+        killBy = null;
+    }
+
+    public Sheep(boolean _isLamb)
+    {
+        super();
         isLamb = _isLamb;
         killBy = null;
     }
 
-    boolean PredatorAction(Predator predator, int numAlpacaGuarded) {
+    boolean PredatorAction(Predator predator, int numAlpacaGuarded)
+    {
         float probability = (isLamb ? 2 : 1) * predator.getDangerFactor();
         probability = numAlpacaGuarded <= 0 ? probability : (probability / (2 * numAlpacaGuarded));
         isAlive = !(random.nextFloat() < probability);
@@ -22,15 +34,18 @@ class Sheep extends Animal {
         return !isAlive;
     }
 
-    boolean IsLamb() {
+    boolean IsLamb()
+    {
         return isLamb;
     }
 
-    Predator KillBy() {
+    Predator KillBy()
+    {
         return killBy;
     }
 
-    void Reset() {
+    void Reset()
+    {
         isAlive = true;
         killBy = null;
     }
