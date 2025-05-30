@@ -13,7 +13,9 @@ public class Farm
     private final int valuePerAlpaca = 1000;
 
     private final int alpacaHiringCost = 500;
-    private final int alpacaMaintenanceCost = (int) (new Random().nextFloat() * 200 + 400);    // Constructors
+    private final int alpacaMaintenanceCost = (int) (new Random().nextFloat() * 200 + 400);
+
+    // Constructors
     public Farm()
     {
         name = null;
@@ -110,12 +112,12 @@ public class Farm
         this.state = state;
     }
 
-    public SimulationResult Simulation(int num_alpaca)
+    public SimulationManager.SimulationResult Simulation(int num_alpaca)
     {
         for (Sheep s : sheep)
             s.Reset();
 
-        SimulationResult res = new SimulationResult(state.GetPredatorList());
+        SimulationManager.SimulationResult res = new SimulationManager.SimulationResult(state.GetPredatorList());
         
         // Calculate alpaca losses
         int alpacaLost = 0;
